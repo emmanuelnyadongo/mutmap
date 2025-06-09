@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viral Genome Mutation Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Viral Genome Mutation Visualizer</h1>
+            <p>Upload 2-3 FASTA files to visualize mutations</p>
+        </header>
+
+        <main>
+            <section class="upload-section">
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="file-input-container">
+                        <input type="file" id="files" name="files[]" multiple accept=".fasta,.fa" required>
+                        <label for="files">Choose FASTA files</label>
+                    </div>
+                    <button type="submit">Analyze Sequences</button>
+                </form>
+            </section>
+
+            <section class="results-section" style="display: none;">
+                <div class="visualization-container">
+                    <h2>Genome Visualization</h2>
+                    <div id="genomeVisualization"></div>
+                </div>
+
+                <div class="mutations-table">
+                    <h2>Mutations Table</h2>
+                    <table id="mutationsTable">
+                        <thead>
+                            <tr>
+                                <th>Sample</th>
+                                <th>Position</th>
+                                <th>Reference Base</th>
+                                <th>Sample Base</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 
